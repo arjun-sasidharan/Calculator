@@ -8,13 +8,14 @@
     android:orientation="vertical"
     android:layout_margin="10dp">
     <TextView
+        android:id="@+id/display_screen"
         android:layout_weight="2"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:background="@android:color/darker_gray"
         android:text=""
         android:layout_marginBottom="8dp"
-        />
+        android:textAlignment="textEnd"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -25,12 +26,14 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:text="@string/button_on"
+            android:onClick="buttonOn"
             />
         <Button
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:text="@string/button_off"/>
+            android:text="@string/button_off"
+            android:onClick="buttonOff"/>
         <Button
             android:layout_weight="1"
             android:layout_width="0dp"
