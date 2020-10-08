@@ -25,9 +25,16 @@ public class MainActivity extends AppCompatActivity {
      */
     String displayNumber = "";
     float operand = 0;
-    float operandB = 0;
     float result = 0;
     String operator ;
+    boolean isCalculatorOn = false;
+    /**
+     * @param decimalPosition is used to keep track of decimal (dot) button used so if user clicks dot button more than one times a warning message pop up.
+     *                        if it's value is 0, then it means it's not used and no number button is used either
+     *                        if it's value is 1, then it means it's not used, but number button is used
+     *                        if it's value is 2, then it means it's used.
+     */
+    int decimalPosition = 0;
 
     /**
      * this program is in developing stage and will not be stable
@@ -41,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
         operator = "";
         operand = 0;
         result = 0;
+        decimalPosition = 0;
+        isCalculatorOn = true;
         operatorDisplay(operator);
         display("0");
     }
@@ -50,35 +59,165 @@ public class MainActivity extends AppCompatActivity {
         operator = "";
         operand = 0;
         result = 0;
+        decimalPosition = 0;
+        isCalculatorOn = false;
         operatorDisplay(operator);
         display(displayNumber);
     }
     //this method calls when 7 button pressed
     public void button7(View view){
-        displayNumber = displayNumber + "7";
-        operand = Float.parseFloat(displayNumber.toString());
-        Log.v("Main Activity","the number is "+ displayNumber + "in string and " + operand + " in float");
-        display(displayNumber);
+        if (isCalculatorOn == true) {
+            displayNumber = displayNumber + "7";
+            operand = Float.parseFloat(displayNumber.toString());
+            Log.v("Main Activity", "the number is " + displayNumber + "in string and " + operand + " in float");
+            decimalPosition = 1;
+            display(displayNumber);
+        }
     }
     //this method calls when 8 button pressed
     public void button8(View view){
-        displayNumber = displayNumber + "8";
-        operand = Float.parseFloat(displayNumber.toString());
-        Log.v("Main Activity","the number is "+ displayNumber + "in string and " + operand + " in float");
-        display(displayNumber);
+        if(isCalculatorOn == true) {
+            displayNumber = displayNumber + "8";
+            operand = Float.parseFloat(displayNumber.toString());
+            Log.v("Main Activity", "the number is " + displayNumber + "in string and " + operand + " in float");
+            decimalPosition = 1;
+            display(displayNumber);
+        }
     }
+    //this method calls when 9 button pressed
+    public void button9(View view){
+        if (isCalculatorOn == true) {
+            displayNumber = displayNumber + "9";
+            operand = Float.parseFloat(displayNumber.toString());
+            Log.v("Main Activity", "the number is " + displayNumber + "in string and " + operand + " in float");
+            decimalPosition = 1;
+            display(displayNumber);
+        }
+    }
+    //this method calls when 4 button pressed
+    public void button4(View view){
+        if (isCalculatorOn == true) {
+            displayNumber = displayNumber + "4";
+            operand = Float.parseFloat(displayNumber.toString());
+            Log.v("Main Activity", "the number is " + displayNumber + "in string and " + operand + " in float");
+            decimalPosition = 1;
+            display(displayNumber);
+        }
+    }
+    //this method calls when 5 button pressed
+    public void button5(View view){
+        if (isCalculatorOn == true) {
+            displayNumber = displayNumber + "5";
+            operand = Float.parseFloat(displayNumber.toString());
+            Log.v("Main Activity", "the number is " + displayNumber + "in string and " + operand + " in float");
+            decimalPosition = 1;
+            display(displayNumber);
+        }
+    }
+    //this method calls when 6 button pressed
+    public void button6(View view){
+        if (isCalculatorOn == true) {
+            displayNumber = displayNumber + "6";
+            operand = Float.parseFloat(displayNumber.toString());
+            Log.v("Main Activity", "the number is " + displayNumber + "in string and " + operand + " in float");
+            decimalPosition = 1;
+            display(displayNumber);
+        }
+    }
+    //this method calls when 1 button pressed
+    public void button1(View view){
+        if (isCalculatorOn == true) {
+            displayNumber = displayNumber + "1";
+            operand = Float.parseFloat(displayNumber.toString());
+            Log.v("Main Activity", "the number is " + displayNumber + "in string and " + operand + " in float");
+            decimalPosition = 1;
+            display(displayNumber);
+        }
+    }
+    //this method calls when 2 button pressed
+    public void button2(View view){
+        if (isCalculatorOn == true) {
+            displayNumber = displayNumber + "2";
+            operand = Float.parseFloat(displayNumber.toString());
+            Log.v("Main Activity", "the number is " + displayNumber + "in string and " + operand + " in float");
+            decimalPosition = 1;
+            display(displayNumber);
+        }
+    }
+    //this method calls when 3 button pressed
+    public void button3(View view){
+        if (isCalculatorOn == true) {
+            displayNumber = displayNumber + "3";
+            operand = Float.parseFloat(displayNumber.toString());
+            Log.v("Main Activity", "the number is " + displayNumber + "in string and " + operand + " in float");
+            decimalPosition = 1;
+            display(displayNumber);
+        }
+    }
+    //this method calls when 0 button pressed
+    public void button0(View view){
+        if (isCalculatorOn == true) {
+            displayNumber = displayNumber + "0";
+            operand = Float.parseFloat(displayNumber.toString());
+            Log.v("Main Activity", "the number is " + displayNumber + "in string and " + operand + " in float");
+            decimalPosition = 1;
+            display(displayNumber);
+        }
+    }
+    //this method calls when . (dot) button pressed
+    public void buttonDot(View view) {
+        if (isCalculatorOn == true) {
+            if (decimalPosition == 0) {
+                displayNumber = displayNumber + "0.";
+                decimalPosition = 2;
+                operand = Float.parseFloat(displayNumber.toString());
+                Log.v("Main Activity", "the number is " + displayNumber + "in string and " + operand + " in float");
+                display(displayNumber);
+            }
+            if (decimalPosition == 1) {
+                displayNumber = displayNumber + ".";
+                decimalPosition = 2;
+                operand = Float.parseFloat(displayNumber.toString());
+                Log.v("Main Activity", "the number is " + displayNumber + "in string and " + operand + " in float");
+                display(displayNumber);
+            }
+        }
+    }
+
     /**this method calls when plus button pressed
      *
      *displayMessage take the String format number in the display text view
      *operandA it convert the String to float number and store it
      */
-    public void buttonPlus(View view){
-        operator = "+";
-        operatorDisplay(operator);
-        result = result + operand;
-        Log.v("MainActivity", "operand A is " + operand + " and Result is " + result) ;
-        displayNumber = "";
-        display("" + result);
+    public void buttonPlus(View view) {
+        if (isCalculatorOn == true) {
+            operator = "+";
+            operatorDisplay(operator);
+            if (displayNumber != "") {
+                result = result + operand;
+                Log.v("MainActivity", "operand A is " + operand + " and Result is " + result);
+                displayNumber = "";
+                display("" + result);
+            }
+
+        }
+    }
+
+    /**
+     * method for subtraction
+     */
+    public void buttonMinus(View view) {
+        if (isCalculatorOn == true) {
+            operator = "-";
+            operatorDisplay(operator);
+            if (displayNumber != "") {
+                result = result - operand;
+                Log.v("MainActivity", "operand A is " + operand + " and Result is " + result);
+                displayNumber = "";
+                display("" + result);
+            }
+
+        }
     }
 
     /**this method calls when equal button pressed
@@ -86,23 +225,27 @@ public class MainActivity extends AppCompatActivity {
      *displayMessage take the String format number in the display text view
      *operandA it convert the String to float number and store it
      */
-    public void buttonEqualTo(View view){
-        TextView displayMessage = (TextView) findViewById(R.id.display_screen);
-        if(displayNumber != ""){
-            operand = Float.parseFloat(displayMessage.getText().toString());
-            if (operator == "+"){
-                result = result + operand;
-                Log.v("MainActivity", "operand A is " + operand + " and Result is " + result);
+    public void buttonEqualTo(View view) {
+        if (isCalculatorOn == true) {
+            TextView displayMessage = (TextView) findViewById(R.id.display_screen);
+            if (displayNumber != "") {
+                operand = Float.parseFloat(displayMessage.getText().toString());
+                if (operator == "+") {
+                    result = result + operand;
+                    Log.v("MainActivity", "operand A is " + operand + " and Result is " + result);
+                } else if (operator == "-") {
+                    result = result - operand;
+                    Log.v("MainActivity", "operand A is " + operand + " and Result is " + result);
+                }
                 displayNumber = "";
-                operator="";
+                operator = "";
+                operatorDisplay(operator);
+                display("" + result);
+            } else {
+                //TODO : give a toast message
             }
-            operatorDisplay(operator);
-            display("" + result) ;
-        }
-        else {
-            //TODO : give a toast message
-        }
 
+        }
     }
 
 
