@@ -9,7 +9,11 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+
 public class MainActivity extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,16 +22,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * @param displayNumber store the number to display on the screen as string.
-     * @param operandA
-     * @param operandB
+     * @param displayNumber store the number to display as string.
+     * @param operand store the number in the text view as float
+     * @param
      */
     String displayNumber = "";
-    double operand = 0;
-    double result = 0;
+    float operand = 0;
+    float result = 0;
     String operator;
-    double numA, numB;
+    float numA, numB;
     boolean isCalculatorOn = false;
+    // this method format the number
+    DecimalFormat numberFormat = new DecimalFormat("#.###");
+
     /**
      * @param decimalPosition is used to keep track of decimal (dot) button used so if user clicks dot button more than one times a warning message pop up.
      * if it's value is 0, then it means it's not used and no number button is used either
@@ -69,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
     public void button7(View view) {
         if (isCalculatorOn == true) {
             displayNumber = displayNumber + "7";
-            operand = Double.parseDouble(displayNumber.toString());
+            operand = Float.parseFloat(displayNumber.toString());
             Log.v("Main Activity", "the number is " + displayNumber + "in string and " + operand + " in float");
             decimalPosition = 1;
             display(displayNumber);
@@ -80,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
     public void button8(View view) {
         if (isCalculatorOn == true) {
             displayNumber = displayNumber + "8";
-            operand = Double.parseDouble(displayNumber.toString());
+            operand = Float.parseFloat(displayNumber.toString());
             Log.v("Main Activity", "the number is " + displayNumber + "in string and " + operand + " in float");
             decimalPosition = 1;
             display(displayNumber);
@@ -206,11 +213,15 @@ public class MainActivity extends AppCompatActivity {
             operator = "+";
             operatorDisplay(operator);
             if (displayNumber != "") {
+                numA = result;
+                numB = operand;
                 result = result + operand;
+                numberFormat.setRoundingMode(RoundingMode.CEILING);
+                display("" + numberFormat.format(result));
+                operatorDisplay(numberFormat.format(numA) + " " + operator + " " + numberFormat.format(numB));
                 Log.v("MainActivity", "operand A is " + operand + " and Result is " + result);
                 decimalPosition = 0;
                 displayNumber = "";
-                display("" + result);
             }
 
         }
@@ -228,7 +239,29 @@ public class MainActivity extends AppCompatActivity {
                 Log.v("MainActivity", "operand A is " + operand + " and Result is " + result);
                 decimalPosition = 0;
                 displayNumber = "";
-                display("" + result);
+                numberFormat.setRoundingMode(RoundingMode.CEILING);
+                display("" + numberFormat.format(result));
+                operatorDisplay(numberFormat.format(result) + " " + operator + " " );
+            }
+
+        }
+    }
+
+    /**
+     * this method calls when plus button pressed
+     */
+    public void buttonMultiply(View view) {
+        if (isCalculatorOn == true) {
+            operator = "x";
+            operatorDisplay(operator);
+            if (displayNumber != "") {
+                result = operand;
+                Log.v("MainActivity", "operand A is " + operand + " and Result is " + result);
+                decimalPosition = 0;
+                displayNumber = "";
+                numberFormat.setRoundingMode(RoundingMode.CEILING);
+                display("" + numberFormat.format(result));
+                operatorDisplay(numberFormat.format(result) + " " + operator + " " );
             }
 
         }
@@ -244,27 +277,40 @@ public class MainActivity extends AppCompatActivity {
         if (isCalculatorOn == true) {
             TextView displayMessage = (TextView) findViewById(R.id.display_screen);
             if (displayNumber != "") {
-                operand = Double.parseDouble(displayMessage.getText().toString());
+                operand = Float.parseFloat(displayMessage.getText().toString());
                 if (operator == "+") {
                     numA = result;
                     numB = operand;
                     result = result + operand;
-                    operatorDisplay(numA + " " + operator + " " + numB);
-                    display("" + result);
+                    numberFormat.setRoundingMode(RoundingMode.CEILING);
+                    display("" + numberFormat.format(result));
+                    operatorDisplay(numberFormat.format(numA) + " " + operator + " " + numberFormat.format(numB));
                     Log.v("MainActivity", "operand A is " + operand + " and Result is " + result);
-                } else if (operator == "-") {
+                }
+                else if (operator == "-") {
                     numA = result;
                     numB = operand;
                     result = result - operand;
-                    operatorDisplay(numA + " " + operator + " " + numB);
-                    display("" + result);
+                    numberFormat.setRoundingMode(RoundingMode.CEILING);
+                    display("" + numberFormat.format(result));
+                    operatorDisplay(numberFormat.format(numA) + " " + operator + " " + numberFormat.format(numB));
+                    Log.v("MainActivity", "operand A is " + operand + " and Result is " + result);
+                }
+                else if (operator == "x") {
+                    DecimalFormat numberFormat = new DecimalFormat("#.#######");
+                    numA = result;
+                    numB = operand;
+                    result = result * operand;
+                    numberFormat.setRoundingMode(RoundingMode.CEILING);
+                    display("" + numberFormat.format(result));
+                    operatorDisplay(numberFormat.format(numA) + " " + operator + " " + numberFormat.format(numB));
                     Log.v("MainActivity", "operand A is " + operand + " and Result is " + result);
                 }
                 decimalPosition = 0;
                 displayNumber = "";
                 operator = "";
             } else {
-                //TODO : give a toast message
+                //TODO : give a toast message "equal to does not work without number"
             }
 
         }
@@ -274,15 +320,6 @@ public class MainActivity extends AppCompatActivity {
     public void display(String display) {
         TextView displayMessage = (TextView) findViewById(R.id.display_screen);
         displayMessage.setText(display);
-
-        /** testing String to Float conversion
-         //        String ex1 = "126";
-         //        Log.v("Main Activity","String is "+ ex1);
-         //        float f = Float.parseFloat(ex1);
-         //        Log.v("Main Activity","Converted to Float");
-         //        f = f + 1 ;
-         //        Log.v("Main Activity","1 Added" + f);
-         */
     }
 
     //this method display operator symbol according to what operator is selected

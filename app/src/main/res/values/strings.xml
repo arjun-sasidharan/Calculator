@@ -16,7 +16,7 @@
     <string name="button_equalTo">=</string>
     <string name="button_plus">+</string>
     <string name="button_minus">-</string>
-    <string name="button_multiply">X</string>
+    <string name="button_multiply">x</string>
     <string name="button_divide">/</string>
 
 </resources>
