@@ -167,14 +167,14 @@ public class MainActivity extends AppCompatActivity {
     //this method calls when . (dot) button pressed
     public void buttonDot(View view) {
         if (isCalculatorOn == true) {
-            if (decimalPosition == 0) {
+            if (decimalPosition == 0 && displayNumber == "") {
                 displayNumber = displayNumber + "0.";
                 decimalPosition = 2;
                 operand = Float.parseFloat(displayNumber.toString());
                 Log.v("Main Activity", "the number is " + displayNumber + "in string and " + operand + " in float");
                 display(displayNumber);
             }
-            if (decimalPosition == 1) {
+            if (decimalPosition == 1 && displayNumber != "") {
                 displayNumber = displayNumber + ".";
                 decimalPosition = 2;
                 operand = Float.parseFloat(displayNumber.toString());
@@ -196,6 +196,7 @@ public class MainActivity extends AppCompatActivity {
             if (displayNumber != "") {
                 result = result + operand;
                 Log.v("MainActivity", "operand A is " + operand + " and Result is " + result);
+                decimalPosition = 0;
                 displayNumber = "";
                 display("" + result);
             }
@@ -213,6 +214,7 @@ public class MainActivity extends AppCompatActivity {
             if (displayNumber != "") {
                 result = result - operand;
                 Log.v("MainActivity", "operand A is " + operand + " and Result is " + result);
+                decimalPosition = 0;
                 displayNumber = "";
                 display("" + result);
             }
@@ -237,6 +239,7 @@ public class MainActivity extends AppCompatActivity {
                     result = result - operand;
                     Log.v("MainActivity", "operand A is " + operand + " and Result is " + result);
                 }
+                decimalPosition = 0;
                 displayNumber = "";
                 operator = "";
                 operatorDisplay(operator);
