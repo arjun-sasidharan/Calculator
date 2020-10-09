@@ -59,7 +59,8 @@
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:text="@string/button_divide"/>
+            android:text="@string/button_divide"
+            android:onClick="buttonDivide"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"

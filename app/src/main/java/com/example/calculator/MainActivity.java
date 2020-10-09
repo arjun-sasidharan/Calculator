@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -267,7 +268,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * this method calls when plus button pressed
+     * this method calls when multiply button pressed
      */
     public void buttonMultiply(View view) {
         if (isCalculatorOn == true) {
@@ -285,6 +286,27 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
+
+    /**
+     * this method calls when divide button pressed
+     */
+    public void buttonDivide(View view) {
+        if (isCalculatorOn == true) {
+            operator = "/";
+            operatorDisplay(operator);
+            if (displayNumber != "") {
+                result = operand;
+                Log.v("MainActivity", "operand A is " + operand + " and Result is " + result);
+                decimalPosition = 0;
+                displayNumber = "";
+                numberFormat.setRoundingMode(RoundingMode.CEILING);
+                display("" + numberFormat.format(result));
+                operatorDisplay(numberFormat.format(result) + " " + operator + " " );
+            }
+
+        }
+    }
+
 
     /**
      * this method calls when equal button pressed
@@ -316,7 +338,7 @@ public class MainActivity extends AppCompatActivity {
                     Log.v("MainActivity", "operand A is " + operand + " and Result is " + result);
                 }
                 else if (operator == "x") {
-                    DecimalFormat numberFormat = new DecimalFormat("#.#######");
+//                    DecimalFormat numberFormat = new DecimalFormat("#.#######");
                     numA = result;
                     numB = operand;
                     result = result * operand;
@@ -325,11 +347,25 @@ public class MainActivity extends AppCompatActivity {
                     operatorDisplay(numberFormat.format(numA) + " " + operator + " " + numberFormat.format(numB));
                     Log.v("MainActivity", "operand A is " + operand + " and Result is " + result);
                 }
+                else if (operator == "/") {
+                    if (operand != 0) {
+//                    DecimalFormat numberFormat = new DecimalFormat("#.#######");
+                        numA = result;
+                        numB = operand;
+                        result = result / operand;
+                        numberFormat.setRoundingMode(RoundingMode.CEILING);
+                        display("" + numberFormat.format(result));
+                        operatorDisplay(numberFormat.format(numA) + " " + operator + " " + numberFormat.format(numB));
+                        Log.v("MainActivity", "operand A is " + operand + " and Result is " + result);
+                    }
+                    else{
+                        operatorDisplay("ERROR: DIVISION BY ZERO");
+                        Toast.makeText(this,"Cannot divide a number by zero",Toast.LENGTH_SHORT).show();
+                    }
+                }
                 decimalPosition = 0;
                 displayNumber = "";
                 operator = "";
-            } else {
-                //TODO : give a toast message "equal to does not work without number"
             }
 
         }
