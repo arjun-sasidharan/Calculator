@@ -14,7 +14,6 @@ import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,7 +77,9 @@ public class MainActivity extends AppCompatActivity {
             displayNumber = displayNumber + "7";
             operand = Float.parseFloat(displayNumber.toString());
             Log.v("Main Activity", "the number is " + displayNumber + "in string and " + operand + " in float");
-            decimalPosition = 1;
+            if (decimalPosition !=2) {
+                decimalPosition = 1;
+            }
             display(displayNumber);
         }
     }
@@ -89,7 +90,9 @@ public class MainActivity extends AppCompatActivity {
             displayNumber = displayNumber + "8";
             operand = Float.parseFloat(displayNumber.toString());
             Log.v("Main Activity", "the number is " + displayNumber + "in string and " + operand + " in float");
-            decimalPosition = 1;
+            if (decimalPosition !=2) {
+                decimalPosition = 1;
+            }
             display(displayNumber);
         }
     }
@@ -100,7 +103,9 @@ public class MainActivity extends AppCompatActivity {
             displayNumber = displayNumber + "9";
             operand = Float.parseFloat(displayNumber.toString());
             Log.v("Main Activity", "the number is " + displayNumber + "in string and " + operand + " in float");
-            decimalPosition = 1;
+            if (decimalPosition !=2) {
+                decimalPosition = 1;
+            }
             display(displayNumber);
         }
     }
@@ -111,7 +116,9 @@ public class MainActivity extends AppCompatActivity {
             displayNumber = displayNumber + "4";
             operand = Float.parseFloat(displayNumber.toString());
             Log.v("Main Activity", "the number is " + displayNumber + "in string and " + operand + " in float");
-            decimalPosition = 1;
+            if (decimalPosition !=2) {
+                decimalPosition = 1;
+            }
             display(displayNumber);
         }
     }
@@ -122,7 +129,9 @@ public class MainActivity extends AppCompatActivity {
             displayNumber = displayNumber + "5";
             operand = Float.parseFloat(displayNumber.toString());
             Log.v("Main Activity", "the number is " + displayNumber + "in string and " + operand + " in float");
-            decimalPosition = 1;
+            if (decimalPosition !=2) {
+                decimalPosition = 1;
+            }
             display(displayNumber);
         }
     }
@@ -133,7 +142,9 @@ public class MainActivity extends AppCompatActivity {
             displayNumber = displayNumber + "6";
             operand = Float.parseFloat(displayNumber.toString());
             Log.v("Main Activity", "the number is " + displayNumber + "in string and " + operand + " in float");
-            decimalPosition = 1;
+            if (decimalPosition !=2) {
+                decimalPosition = 1;
+            }
             display(displayNumber);
         }
     }
@@ -144,7 +155,9 @@ public class MainActivity extends AppCompatActivity {
             displayNumber = displayNumber + "1";
             operand = Float.parseFloat(displayNumber.toString());
             Log.v("Main Activity", "the number is " + displayNumber + "in string and " + operand + " in float");
-            decimalPosition = 1;
+            if (decimalPosition !=2) {
+                decimalPosition = 1;
+            }
             display(displayNumber);
         }
     }
@@ -155,7 +168,9 @@ public class MainActivity extends AppCompatActivity {
             displayNumber = displayNumber + "2";
             operand = Float.parseFloat(displayNumber.toString());
             Log.v("Main Activity", "the number is " + displayNumber + "in string and " + operand + " in float");
-            decimalPosition = 1;
+            if (decimalPosition !=2) {
+                decimalPosition = 1;
+            }
             display(displayNumber);
         }
     }
@@ -166,7 +181,9 @@ public class MainActivity extends AppCompatActivity {
             displayNumber = displayNumber + "3";
             operand = Float.parseFloat(displayNumber.toString());
             Log.v("Main Activity", "the number is " + displayNumber + "in string and " + operand + " in float");
-            decimalPosition = 1;
+            if (decimalPosition !=2) {
+                decimalPosition = 1;
+            }
             display(displayNumber);
         }
     }
@@ -177,7 +194,9 @@ public class MainActivity extends AppCompatActivity {
             displayNumber = displayNumber + "0";
             operand = Float.parseFloat(displayNumber.toString());
             Log.v("Main Activity", "the number is " + displayNumber + "in string and " + operand + " in float");
-            decimalPosition = 1;
+            if (decimalPosition !=2) {
+                decimalPosition = 1;
+            }
             display(displayNumber);
         }
     }
