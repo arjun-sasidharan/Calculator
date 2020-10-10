@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#7a7a7a</color>
-    <color name="colorPrimaryDark">#7a7a7a</color>
+    <color name="colorPrimary">#121416</color>
+    <color name="colorPrimaryDark">#121416</color>
     <color name="colorAccent">#03DAC5</color>
-    <color name="titleTextColor">#2c2c2c</color>
-    <color name="background">#7a7a7a</color>
-    <color name="displayColor">#94C072</color>
-    <color name="operatorDisplayText">#2c2c2c</color>
-    <color name="DisplayText">#2c2c2c</color>
-    <color name="offButton">#2c2c2c</color>
-    <color name="offButtonText">#cf2929</color>
-    <color name="onButton">#2c2c2c</color>
-    <color name="onButtonText">#8895B3</color>
-    <color name="numberButton">#2c2c2c</color>
-    <color name="numberButtonText">@android:color/white</color>
-    <color name="operatorButton">#2c2c2c</color>
-    <color name="operatorButtonText">@android:color/white</color>
-    <color name="equalToButton">#2c2c2c</color>
-    <color name="equalToButtonText">@android:color/white</color>
+    <color name="titleTextColor">#D6D6D6</color>
+    <color name="background">#121416</color>
+    <color name="displayColor">#1C1F22</color>495057
+    <color name="operatorDisplayText">#8F8F8F</color>
+    <color name="lineSeperator">#303235</color>
+    <color name="DisplayText">#D6D6D6</color>
+    <color name="offButton">#CC0000</color>
+    <color name="offButtonText">#4F0304</color>
+    <color name="onButton">#304620</color>
+    <color name="onButtonText">#D6D6D6</color>
+    <color name="numberButton">#2F3B43</color>
+    <color name="numberButtonText">#D6D6D6</color>
+    <color name="operatorButton">#222A30</color>
+    <color name="operatorButtonText">#8895B3</color>
+    <color name="equalToButton">#222A30</color>
+    <color name="equalToButtonText">#699A47</color>
 
 
 

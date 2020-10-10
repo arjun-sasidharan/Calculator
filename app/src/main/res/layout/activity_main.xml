@@ -17,6 +17,12 @@
         android:gravity="right"
         android:paddingRight="10dp"
         tools:text="+" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/lineSeperator"
+
+        />
 
     <TextView
         style="@style/displayTextStyle"
