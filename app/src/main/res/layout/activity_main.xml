@@ -6,28 +6,26 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:orientation="vertical"
-    android:layout_margin="10dp">
+    android:padding="8dp"
+    android:background="@color/background">
+
     <TextView
         android:id="@+id/operator_screen"
+        style="@style/operatorTextStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="right"
         android:paddingRight="10dp"
-        tools:text="+"
-        style="@style/buttonTextStyle"
-        android:background="@android:color/darker_gray"
+        tools:text="+" />
 
-        />
     <TextView
+        style="@style/displayTextStyle"
         android:id="@+id/display_screen"
         android:layout_weight="2"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@android:color/darker_gray"
         android:text=""
         tools:text="0"
-        android:fontFamily="sans-serif-medium"
-        android:textSize="60sp"
         android:textAlignment="viewEnd"
         android:padding="8dp"
         android:gravity="center_vertical"
@@ -40,7 +38,7 @@
         android:layout_weight="1"
         android:orientation="horizontal">
         <Button
-            style="@style/buttonTextStyle"
+            style="@style/onButtonTextStyle"
             android:layout_weight="2"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -48,14 +46,14 @@
             android:onClick="buttonOn"
             />
         <Button
-            style="@style/buttonTextStyle"
+            style="@style/offButtonTextStyle"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:text="@string/button_off"
-            android:onClick="buttonOff"/>
+            android:onClick="buttonOff" />
         <Button
-            style="@style/buttonTextStyle"
+            style="@style/operatorButtonTextStyle"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -89,7 +87,7 @@
             android:text="@string/button_9"
             android:onClick="button9"/>
         <Button
-            style="@style/buttonTextStyle"
+            style="@style/operatorButtonTextStyle"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -123,7 +121,7 @@
             android:text="@string/button_6"
             android:onClick="button6"/>
         <Button
-            style="@style/buttonTextStyle"
+            style="@style/operatorButtonTextStyle"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -190,7 +188,7 @@
                 android:text="@string/button_3"
                 android:onClick="button3"/>
             <Button
-                style="@style/buttonTextStyle"
+                style="@style/equalToButtonTextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
@@ -198,7 +196,7 @@
                 android:onClick="buttonEqualTo"/>
         </LinearLayout>
         <Button
-            style="@style/buttonTextStyle"
+            style="@style/operatorButtonTextStyle"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:text="@string/button_plus"

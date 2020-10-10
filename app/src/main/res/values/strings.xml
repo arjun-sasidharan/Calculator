@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">Calculator</string>
-    <string name="button_on">ON</string>
+    <string name="app_name">Classic Calculator</string>
+    <string name="button_on">ON / C</string>
     <string name="button_off">OFF</string>
     <string name="button_9">9</string>
     <string name="button_8">8</string>
@@ -18,5 +18,6 @@
     <string name="button_minus">-</string>
     <string name="button_multiply">x</string>
     <string name="button_divide">/</string>
+    <string name="zero_error_toast">Cannot divide a number by zero</string>
 
 </resources>

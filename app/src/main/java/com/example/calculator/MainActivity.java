@@ -253,6 +253,7 @@ public class MainActivity extends AppCompatActivity {
     public void buttonMinus(View view) {
         if (isCalculatorOn == true) {
             operator = "-";
+            operatorDisplay(operator);
             if (displayNumber != "") {
                 result = operand;
                 operatorDisplay(result + " " + operator + " ");
@@ -360,7 +361,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                     else{
                         operatorDisplay("ERROR: DIVISION BY ZERO");
-                        Toast.makeText(this,"Cannot divide a number by zero",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this,getText(R.string.zero_error_toast),Toast.LENGTH_SHORT).show();
                     }
                 }
                 decimalPosition = 0;

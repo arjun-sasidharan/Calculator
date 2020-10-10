@@ -5,11 +5,63 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:navigationBarColor">@color/background</item>
+        <item name="titleTextColor">@color/titleTextColor</item>
     </style>
-    <style name="buttonTextStyle">
+    <!--Style of operator display textview -->
+    <style name="operatorTextStyle">
+        <item name="android:background">@color/displayColor</item>
+        <item name="android:textColor">@color/operatorDisplayText</item>
         <item name="android:textSize">20sp</item>
         <item name="android:fontFamily">sans-serif-light</item>
+    </style>
 
+    <!--Style of display screen textview -->
+    <style name="displayTextStyle">
+        <item name="android:background">@color/displayColor</item>
+        <item name="android:textColor">@color/DisplayText</item>
+        <item name="android:textSize">60sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <!--Style of number buttons  -->
+    <style name="buttonTextStyle">
+        <item name="backgroundTint">@color/numberButton</item>
+        <item name="android:textColor">@color/numberButtonText</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
+    <!--Style of operator buttons  -->
+    <style name="operatorButtonTextStyle">
+        <item name="backgroundTint">@color/operatorButton</item>
+        <item name="android:textColor">@color/operatorButtonText</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
+    <!--Style of equalto buttons  -->
+    <style name="equalToButtonTextStyle">
+        <item name="backgroundTint">@color/equalToButton</item>
+        <item name="android:textColor">@color/equalToButtonText</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
+    <!--Style of OFF button-->
+    <style name="offButtonTextStyle">
+        <item name="backgroundTint">@color/offButton</item>
+        <item name="android:textColor">@color/offButtonText</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
+    <!--Style of ON button-->
+    <style name="onButtonTextStyle">
+        <item name="backgroundTint">@color/onButton</item>
+        <item name="android:textColor">@color/onButtonText</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">sans-serif-light</item>
     </style>
 
 </resources>
