@@ -5,11 +5,30 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:navigationBarColor">@color/background</item>
+        <item name="colorButtonNormal">@color/darkGrey</item>
+        <item name="titleTextColor">@color/darkGrey</item>
+
+    </style>
+    <style name="operatorTextStyle">
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">sans-serif-light</item>
     </style>
     <style name="buttonTextStyle">
         <item name="android:textSize">20sp</item>
         <item name="android:fontFamily">sans-serif-light</item>
-
+        <item name="android:textColor">@android:color/white</item>
     </style>
+    <style name="offButtonTextStyle">
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textColor">@color/offButton</item>
+    </style>
+    <style name="onButtonTextStyle">
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textColor">@color/onButton</item>
+    </style>
+
 
 </resources>

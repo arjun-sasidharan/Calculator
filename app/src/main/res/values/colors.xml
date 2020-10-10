@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorPrimary">#7a7a7a</color>
+    <color name="colorPrimaryDark">#7a7a7a</color>
     <color name="colorAccent">#03DAC5</color>
+    <color name="background">#7a7a7a</color>
+    <color name="offButton">#cf2929</color>
+    <color name="onButton">#8895B3</color>
+    <color name="displayColor">#94C072</color>
+    <color name="operatorDisplayColor">#567F39</color>
+    <color name="darkGrey">#2c2c2c</color>
+
+
+
 </resources>
