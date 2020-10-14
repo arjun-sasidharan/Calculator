@@ -9,8 +9,8 @@
     <color name="operatorDisplayText">#8F8F8F</color>
     <color name="lineSeperator">#303235</color>
     <color name="DisplayText">#D6D6D6</color>
-    <color name="offButton">#CC0000</color>
-    <color name="offButtonText">#4F0304</color>
+    <color name="offButton">#222A30</color>
+    <color name="offButtonText">#CC0000</color>
     <color name="onButton">#304620</color>
     <color name="onButtonText">#D6D6D6</color>
     <color name="numberButton">#2F3B43</color>
