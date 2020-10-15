@@ -1,4 +1,4 @@
-"# Calculator"
+This is a simple calculator android application.
 I made this app as a learner who just started with android development and want to practice the basic learned things.
 Here i used my own logic for this app which i surely think is very inefficient.
 I didn't look at any other calculator projects but internet helped me to find some syntax needed to implement my logic.
