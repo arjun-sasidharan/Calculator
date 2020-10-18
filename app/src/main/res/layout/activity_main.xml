@@ -52,12 +52,12 @@
             android:onClick="buttonOn"
             />
         <Button
-            style="@style/offButtonTextStyle"
+            style="@style/backspaceButtonTextStyle"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:text="@string/button_off"
-            android:onClick="buttonOff" />
+            android:text="@string/button_backspace"
+            android:onClick="buttonBackSpace" />
         <Button
             style="@style/operatorButtonTextStyle"
             android:layout_weight="1"

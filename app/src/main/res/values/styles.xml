@@ -48,10 +48,10 @@
         <item name="android:fontFamily">sans-serif-medium</item>
     </style>
 
-    <!--Style of OFF button-->
-    <style name="offButtonTextStyle">
-        <item name="backgroundTint">@color/offButton</item>
-        <item name="android:textColor">@color/offButtonText</item>
+    <!--Style of backspace button-->
+    <style name="backspaceButtonTextStyle">
+        <item name="backgroundTint">@color/backspaceButton</item>
+        <item name="android:textColor">@color/backspaceButtonText</item>
         <item name="android:textSize">26sp</item>
         <item name="android:fontFamily">sans-serif-medium</item>
     </style>

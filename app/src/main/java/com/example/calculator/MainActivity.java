@@ -8,8 +8,6 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
@@ -28,12 +26,10 @@ public class MainActivity extends AppCompatActivity {
      * @param
      */
     String displayNumber = "";
-    BigDecimal op = new BigDecimal("0");
-    BigDecimal res = new BigDecimal("0");
+    BigDecimal operand = new BigDecimal("0");
+    BigDecimal result = new BigDecimal("0");
     String operator;
-    float numA, numB;
-    BigDecimal nA, nB;
-    boolean isCalculatorOn = false;
+    BigDecimal numA, numB;
     // this method format the number
     DecimalFormat numberFormat = new DecimalFormat("#.###");
 
@@ -54,29 +50,18 @@ public class MainActivity extends AppCompatActivity {
     public void buttonOn(View view) {
         displayNumber = "";
         operator = "";
-        op = new BigDecimal("0");
-        res = new BigDecimal("0");
+        operand = new BigDecimal("0");
+        result = new BigDecimal("0");
         decimalPosition = 0;
-        isCalculatorOn = true;
         operatorDisplay(operator);
         display("0");
     }
-//TODO: off button function is changing to backspace function
-    //this method calls when OFF button pressed
-    public void buttonOff(View view) {
-//        if (displayNumber.length() != 0) {
-//            displayNumber = displayNumber.substring(0, displayNumber.length() - 1);
-//        displayNumber = "";
-//        operator = "";
-//        operand = 0;
-//        result = 0;
-//        op = new BigDecimal("0");
-//        res = new BigDecimal("0");
-//        decimalPosition = 0;
-//        isCalculatorOn = false;
-//        operatorDisplay(operator);
-//            display(displayNumber);
-//        }
+    //this method calls when Backspace button pressed
+    public void buttonBackSpace(View view) {
+        if (displayNumber.length() != 0) {
+            displayNumber = displayNumber.substring(0, displayNumber.length() - 1);
+            display(displayNumber);
+        }
     }
 
     //this method calls when 9 button pressed
@@ -90,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
             display(displayNumber);
         }
         else {
-            Toast.makeText(this,"Maximum digit limit reached",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,getText(R.string.maximum_number_toast),Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -105,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
             display(displayNumber);
         }
         else {
-            Toast.makeText(this,"Maximum digit limit reached",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,getText(R.string.maximum_number_toast),Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -120,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
             display(displayNumber);
         }
         else {
-            Toast.makeText(this,"Maximum digit limit reached",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,getText(R.string.maximum_number_toast),Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -135,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
             display(displayNumber);
         }
         else {
-            Toast.makeText(this,"Maximum digit limit reached",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,getText(R.string.maximum_number_toast),Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -151,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
             display(displayNumber);
         }
         else {
-            Toast.makeText(this,"Maximum digit limit reached",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,getText(R.string.maximum_number_toast),Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -167,7 +152,7 @@ public class MainActivity extends AppCompatActivity {
             display(displayNumber);
         }
         else {
-            Toast.makeText(this,"Maximum digit limit reached",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,getText(R.string.maximum_number_toast),Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -182,7 +167,7 @@ public class MainActivity extends AppCompatActivity {
             display(displayNumber);
         }
         else {
-            Toast.makeText(this,"Maximum digit limit reached",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,getText(R.string.maximum_number_toast),Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -199,7 +184,7 @@ public class MainActivity extends AppCompatActivity {
             display(displayNumber);
         }
         else {
-            Toast.makeText(this,"Maximum digit limit reached",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,getText(R.string.maximum_number_toast),Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -214,7 +199,7 @@ public class MainActivity extends AppCompatActivity {
             display(displayNumber);
         }
         else {
-            Toast.makeText(this,"Maximum digit limit reached",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,getText(R.string.maximum_number_toast),Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -229,7 +214,7 @@ public class MainActivity extends AppCompatActivity {
             display(displayNumber);
         }
         else {
-            Toast.makeText(this,"Maximum digit limit reached",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,getText(R.string.maximum_number_toast),Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -259,14 +244,14 @@ public class MainActivity extends AppCompatActivity {
             operator = "+";
             operatorDisplay(operator);
             if (displayNumber != "") {
-                op = new BigDecimal(displayNumber);
-                nA = res;
-                nB = op;
-                res = res.add(op);
+                operand = new BigDecimal(displayNumber);
+                numA = result;
+                numB = operand;
+                result = result.add(operand);
                 numberFormat.setRoundingMode(RoundingMode.CEILING);
-                display("" + numberFormat.format(res));
-                operatorDisplay(numberFormat.format(nA) + " " + operator + " " + numberFormat.format(nB));
-                Log.v("MainActivity", "operand A is " + op + " and Result is " + res);
+                display("" + numberFormat.format(result));
+                operatorDisplay(numberFormat.format(numA) + " " + operator + " " + numberFormat.format(numB));
+                Log.v("MainActivity", "operand A is " + operand + " and Result is " + result);
                 decimalPosition = 0;
                 displayNumber = "";
             }
@@ -280,14 +265,14 @@ public class MainActivity extends AppCompatActivity {
         operator = "-";
         operatorDisplay(operator);
         if (displayNumber != "") {
-            op = new BigDecimal(displayNumber);
-            res = op;
-            Log.v("MainActivity", "operand A is " + op + " and Result is " + res);
+            operand = new BigDecimal(displayNumber);
+            result = operand;
+            Log.v("MainActivity", "operand A is " + operand + " and Result is " + result);
             decimalPosition = 0;
             displayNumber = "";
             numberFormat.setRoundingMode(RoundingMode.CEILING);
-            display("" + numberFormat.format(res));
-            operatorDisplay(numberFormat.format(res) + " " + operator + " ");
+            display("" + numberFormat.format(result));
+            operatorDisplay(numberFormat.format(result) + " " + operator + " ");
         }
     }
 
@@ -298,14 +283,14 @@ public class MainActivity extends AppCompatActivity {
             operator = "x";
             operatorDisplay(operator);
             if (displayNumber != "") {
-                op = new BigDecimal(displayNumber);
-                res = op;
-                Log.v("MainActivity", "operand A is " + op + " and Result is " + res);
+                operand = new BigDecimal(displayNumber);
+                result = operand;
+                Log.v("MainActivity", "operand A is " + operand + " and Result is " + result);
                 decimalPosition = 0;
                 displayNumber = "";
                 numberFormat.setRoundingMode(RoundingMode.CEILING);
-                display("" + numberFormat.format(res));
-                operatorDisplay(numberFormat.format(res) + " " + operator + " " );
+                display("" + numberFormat.format(result));
+                operatorDisplay(numberFormat.format(result) + " " + operator + " " );
             }
 
         }
@@ -317,14 +302,14 @@ public class MainActivity extends AppCompatActivity {
             operator = "/";
             operatorDisplay(operator);
             if (displayNumber != "") {
-                op = new BigDecimal(displayNumber);
-                res = op;
-                Log.v("MainActivity", "operand A is " + op + " and Result is " + res);
+                operand = new BigDecimal(displayNumber);
+                result = operand;
+                Log.v("MainActivity", "operand A is " + operand + " and Result is " + result);
                 decimalPosition = 0;
                 displayNumber = "";
                 numberFormat.setRoundingMode(RoundingMode.CEILING);
-                display("" + numberFormat.format(res));
-                operatorDisplay(numberFormat.format(res) + " " + operator + " " );
+                display("" + numberFormat.format(result));
+                operatorDisplay(numberFormat.format(result) + " " + operator + " " );
             }
 
         }
@@ -338,38 +323,38 @@ public class MainActivity extends AppCompatActivity {
      */
     public void buttonEqualTo(View view) {
             if (displayNumber != "") {
-                op = new BigDecimal(displayNumber);
+                operand = new BigDecimal(displayNumber);
                 if (operator == "+") {
-                    nA = res;
-                    nB = op;
-                    res = res.add(op);
+                    numA = result;
+                    numB = operand;
+                    result = result.add(operand);
                     numberFormat.setRoundingMode(RoundingMode.CEILING);
-                    display("" + numberFormat.format(res));
-                    operatorDisplay(numberFormat.format(nA) + " " + operator + " " + numberFormat.format(nB));
-                    Log.v("MainActivity", "operand A is " + op + " and Result is " + res);
+                    display("" + numberFormat.format(result));
+                    operatorDisplay(numberFormat.format(numA) + " " + operator + " " + numberFormat.format(numB));
+                    Log.v("MainActivity", "operand A is " + operand + " and Result is " + result);
                 }
                 else if (operator == "-") {
-                    nA = res;
-                    nB = op;
-                    res = res.subtract(op);
+                    numA = result;
+                    numB = operand;
+                    result = result.subtract(operand);
                     numberFormat.setRoundingMode(RoundingMode.CEILING);
-                    display("" + numberFormat.format(res));
-                    operatorDisplay(numberFormat.format(nA) + " " + operator + " " + numberFormat.format(nB));
-                    Log.v("MainActivity", "operand A is " + op + " and Result is " + res);
+                    display("" + numberFormat.format(result));
+                    operatorDisplay(numberFormat.format(numA) + " " + operator + " " + numberFormat.format(numB));
+                    Log.v("MainActivity", "operand A is " + operand + " and Result is " + result);
                 }
                 else if (operator == "x") {
 //                    DecimalFormat numberFormat = new DecimalFormat("#.#######");
-                    nA = res;
-                    nB = op;
-                    res = res.multiply(op);
+                    numA = result;
+                    numB = operand;
+                    result = result.multiply(operand);
                     numberFormat.setRoundingMode(RoundingMode.CEILING);
-                    display("" + numberFormat.format(res));
-                    operatorDisplay(numberFormat.format(nA) + " " + operator + " " + numberFormat.format(nB));
-                    Log.v("MainActivity", "operand A is " + op + " and Result is " + res);
+                    display("" + numberFormat.format(result));
+                    operatorDisplay(numberFormat.format(numA) + " " + operator + " " + numberFormat.format(numB));
+                    Log.v("MainActivity", "operand A is " + operand + " and Result is " + result);
                 }
                 else if (operator == "/") {
                     BigDecimal zero = new BigDecimal("0");
-                    boolean isOperandZero = op.equals(zero);
+                    boolean isOperandZero = operand.equals(zero);
                     if (isOperandZero) {
                         operatorDisplay("ERROR: DIVISION BY ZERO");
                         Toast.makeText(this,getText(R.string.zero_error_toast),Toast.LENGTH_SHORT).show();
@@ -377,13 +362,13 @@ public class MainActivity extends AppCompatActivity {
                     }
                     else{
 //                    DecimalFormat numberFormat = new DecimalFormat("#.#######");
-                        nA = res;
-                        nB = op;
-                        res = res.divide(op);
+                        numA = result;
+                        numB = operand;
+                        result = result.divide(operand);
                         numberFormat.setRoundingMode(RoundingMode.CEILING);
-                        display("" + numberFormat.format(res));
-                        operatorDisplay(numberFormat.format(nA) + " " + operator + " " + numberFormat.format(nB));
-                        Log.v("MainActivity", "operand A is " + op + " and Result is " + res);
+                        display("" + numberFormat.format(result));
+                        operatorDisplay(numberFormat.format(numA) + " " + operator + " " + numberFormat.format(numB));
+                        Log.v("MainActivity", "operand A is " + operand + " and Result is " + result);
                     }
                 }
                 decimalPosition = 0;
