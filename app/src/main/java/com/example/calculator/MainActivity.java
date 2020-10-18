@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
+import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
@@ -27,10 +28,11 @@ public class MainActivity extends AppCompatActivity {
      * @param
      */
     String displayNumber = "";
-    float operand = 0;
-    float result = 0;
+    BigDecimal op = new BigDecimal("0");
+    BigDecimal res = new BigDecimal("0");
     String operator;
     float numA, numB;
+    BigDecimal nA, nB;
     boolean isCalculatorOn = false;
     // this method format the number
     DecimalFormat numberFormat = new DecimalFormat("#.###");
@@ -48,179 +50,204 @@ public class MainActivity extends AppCompatActivity {
      */
 
 
-    //this method calls when ON button pressed
+    //this method calls when ON or Clear button pressed
     public void buttonOn(View view) {
         displayNumber = "";
         operator = "";
-        operand = 0;
-        result = 0;
+        op = new BigDecimal("0");
+        res = new BigDecimal("0");
         decimalPosition = 0;
         isCalculatorOn = true;
         operatorDisplay(operator);
         display("0");
     }
-
+//TODO: off button function is changing to backspace function
     //this method calls when OFF button pressed
     public void buttonOff(View view) {
-        displayNumber = "";
-        operator = "";
-        operand = 0;
-        result = 0;
-        decimalPosition = 0;
-        isCalculatorOn = false;
-        operatorDisplay(operator);
-        display(displayNumber);
+//        if (displayNumber.length() != 0) {
+//            displayNumber = displayNumber.substring(0, displayNumber.length() - 1);
+//        displayNumber = "";
+//        operator = "";
+//        operand = 0;
+//        result = 0;
+//        op = new BigDecimal("0");
+//        res = new BigDecimal("0");
+//        decimalPosition = 0;
+//        isCalculatorOn = false;
+//        operatorDisplay(operator);
+//            display(displayNumber);
+//        }
     }
 
-    //this method calls when 7 button pressed
-    public void button7(View view) {
-        if (isCalculatorOn == true) {
-            displayNumber = displayNumber + "7";
-            operand = Float.parseFloat(displayNumber.toString());
-            Log.v("Main Activity", "the number is " + displayNumber + "in string and " + operand + " in float");
-            if (decimalPosition !=2) {
+    //this method calls when 9 button pressed
+    public void button9(View view) {
+        if (displayNumber.length() <= 15) {
+            displayNumber = displayNumber + "9";
+            Log.v("Main Activity", "the number is " + displayNumber);
+            if (decimalPosition != 2) {
                 decimalPosition = 1;
             }
             display(displayNumber);
+        }
+        else {
+            Toast.makeText(this,"Maximum digit limit reached",Toast.LENGTH_SHORT).show();
         }
     }
 
     //this method calls when 8 button pressed
     public void button8(View view) {
-        if (isCalculatorOn == true) {
+        if (displayNumber.length() <= 15) {
             displayNumber = displayNumber + "8";
-            operand = Float.parseFloat(displayNumber.toString());
-            Log.v("Main Activity", "the number is " + displayNumber + "in string and " + operand + " in float");
-            if (decimalPosition !=2) {
+            Log.v("Main Activity", "the number is " + displayNumber);
+            if (decimalPosition != 2) {
                 decimalPosition = 1;
             }
             display(displayNumber);
         }
+        else {
+            Toast.makeText(this,"Maximum digit limit reached",Toast.LENGTH_SHORT).show();
+        }
     }
 
-    //this method calls when 9 button pressed
-    public void button9(View view) {
-        if (isCalculatorOn == true) {
-            displayNumber = displayNumber + "9";
-            operand = Float.parseFloat(displayNumber.toString());
-            Log.v("Main Activity", "the number is " + displayNumber + "in string and " + operand + " in float");
-            if (decimalPosition !=2) {
+    //this method calls when 7 button pressed
+    public void button7(View view) {
+        if (displayNumber.length() <= 15) {
+            displayNumber = displayNumber + "7";
+            Log.v("Main Activity", "the number is " + displayNumber);
+            if (decimalPosition != 2) {
                 decimalPosition = 1;
             }
             display(displayNumber);
         }
-    }
-
-    //this method calls when 4 button pressed
-    public void button4(View view) {
-        if (isCalculatorOn == true) {
-            displayNumber = displayNumber + "4";
-            operand = Float.parseFloat(displayNumber.toString());
-            Log.v("Main Activity", "the number is " + displayNumber + "in string and " + operand + " in float");
-            if (decimalPosition !=2) {
-                decimalPosition = 1;
-            }
-            display(displayNumber);
-        }
-    }
-
-    //this method calls when 5 button pressed
-    public void button5(View view) {
-        if (isCalculatorOn == true) {
-            displayNumber = displayNumber + "5";
-            operand = Float.parseFloat(displayNumber.toString());
-            Log.v("Main Activity", "the number is " + displayNumber + "in string and " + operand + " in float");
-            if (decimalPosition !=2) {
-                decimalPosition = 1;
-            }
-            display(displayNumber);
+        else {
+            Toast.makeText(this,"Maximum digit limit reached",Toast.LENGTH_SHORT).show();
         }
     }
 
     //this method calls when 6 button pressed
     public void button6(View view) {
-        if (isCalculatorOn == true) {
+        if (displayNumber.length() <= 15) {
             displayNumber = displayNumber + "6";
-            operand = Float.parseFloat(displayNumber.toString());
-            Log.v("Main Activity", "the number is " + displayNumber + "in string and " + operand + " in float");
-            if (decimalPosition !=2) {
+            Log.v("Main Activity", "the number is " + displayNumber);
+            if (decimalPosition != 2) {
                 decimalPosition = 1;
             }
             display(displayNumber);
         }
+        else {
+            Toast.makeText(this,"Maximum digit limit reached",Toast.LENGTH_SHORT).show();
+        }
     }
 
-    //this method calls when 1 button pressed
-    public void button1(View view) {
-        if (isCalculatorOn == true) {
-            displayNumber = displayNumber + "1";
-            operand = Float.parseFloat(displayNumber.toString());
-            Log.v("Main Activity", "the number is " + displayNumber + "in string and " + operand + " in float");
-            if (decimalPosition !=2) {
+
+    //this method calls when 5 button pressed
+    public void button5(View view) {
+        if (displayNumber.length() <= 15) {
+            displayNumber = displayNumber + "5";
+            Log.v("Main Activity", "the number is " + displayNumber);
+            if (decimalPosition != 2) {
                 decimalPosition = 1;
             }
             display(displayNumber);
         }
+        else {
+            Toast.makeText(this,"Maximum digit limit reached",Toast.LENGTH_SHORT).show();
+        }
     }
 
-    //this method calls when 2 button pressed
-    public void button2(View view) {
-        if (isCalculatorOn == true) {
-            displayNumber = displayNumber + "2";
-            operand = Float.parseFloat(displayNumber.toString());
-            Log.v("Main Activity", "the number is " + displayNumber + "in string and " + operand + " in float");
-            if (decimalPosition !=2) {
+
+    //this method calls when 4 button pressed
+    public void button4(View view) {
+        if (displayNumber.length() <= 15) {
+            displayNumber = displayNumber + "4";
+            Log.v("Main Activity", "the number is " + displayNumber);
+            if (decimalPosition != 2) {
                 decimalPosition = 1;
             }
             display(displayNumber);
+        }
+        else {
+            Toast.makeText(this,"Maximum digit limit reached",Toast.LENGTH_SHORT).show();
         }
     }
 
     //this method calls when 3 button pressed
     public void button3(View view) {
-        if (isCalculatorOn == true) {
+        if (displayNumber.length() <= 15) {
             displayNumber = displayNumber + "3";
-            operand = Float.parseFloat(displayNumber.toString());
-            Log.v("Main Activity", "the number is " + displayNumber + "in string and " + operand + " in float");
-            if (decimalPosition !=2) {
+            Log.v("Main Activity", "the number is " + displayNumber);
+            if (decimalPosition != 2) {
                 decimalPosition = 1;
             }
             display(displayNumber);
+        }
+        else {
+            Toast.makeText(this,"Maximum digit limit reached",Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
+
+    //this method calls when 2 button pressed
+    public void button2(View view) {
+        if (displayNumber.length() <= 15) {
+            displayNumber = displayNumber + "2";
+            Log.v("Main Activity", "the number is " + displayNumber);
+            if (decimalPosition != 2) {
+                decimalPosition = 1;
+            }
+            display(displayNumber);
+        }
+        else {
+            Toast.makeText(this,"Maximum digit limit reached",Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    //this method calls when 1 button pressed
+    public void button1(View view) {
+        if (displayNumber.length() <= 15) {
+            displayNumber = displayNumber + "1";
+            Log.v("Main Activity", "the number is " + displayNumber);
+            if (decimalPosition != 2) {
+                decimalPosition = 1;
+            }
+            display(displayNumber);
+        }
+        else {
+            Toast.makeText(this,"Maximum digit limit reached",Toast.LENGTH_SHORT).show();
         }
     }
 
     //this method calls when 0 button pressed
     public void button0(View view) {
-        if (isCalculatorOn == true) {
+        if (displayNumber.length() <= 15) {
             displayNumber = displayNumber + "0";
-            operand = Float.parseFloat(displayNumber.toString());
-            Log.v("Main Activity", "the number is " + displayNumber + "in string and " + operand + " in float");
-            if (decimalPosition !=2) {
+            Log.v("Main Activity", "the number is " + displayNumber);
+            if (decimalPosition != 2) {
                 decimalPosition = 1;
             }
             display(displayNumber);
+        }
+        else {
+            Toast.makeText(this,"Maximum digit limit reached",Toast.LENGTH_SHORT).show();
         }
     }
 
     //this method calls when . (dot) button pressed
     public void buttonDot(View view) {
-        if (isCalculatorOn == true) {
             if (decimalPosition == 0 && displayNumber == "") {
                 displayNumber = displayNumber + "0.";
                 decimalPosition = 2;
-                operand = Float.parseFloat(displayNumber.toString());
-                Log.v("Main Activity", "the number is " + displayNumber + "in string and " + operand + " in float");
+                Log.v("Main Activity", "the number is " + displayNumber);
                 display(displayNumber);
             }
             if (decimalPosition == 1 && displayNumber != "") {
                 displayNumber = displayNumber + ".";
                 decimalPosition = 2;
-                operand = Float.parseFloat(displayNumber.toString());
-                Log.v("Main Activity", "the number is " + displayNumber + "in string and " + operand + " in float");
+                Log.v("Main Activity", "the number is " + displayNumber);
                 display(displayNumber);
             }
         }
-    }
 
     /**
      * this method calls when plus button pressed
@@ -229,42 +256,38 @@ public class MainActivity extends AppCompatActivity {
      * operandA it convert the String to float number and store it
      */
     public void buttonPlus(View view) {
-        if (isCalculatorOn == true) {
             operator = "+";
             operatorDisplay(operator);
             if (displayNumber != "") {
-                numA = result;
-                numB = operand;
-                result = result + operand;
+                op = new BigDecimal(displayNumber);
+                nA = res;
+                nB = op;
+                res = res.add(op);
                 numberFormat.setRoundingMode(RoundingMode.CEILING);
-                display("" + numberFormat.format(result));
-                operatorDisplay(numberFormat.format(numA) + " " + operator + " " + numberFormat.format(numB));
-                Log.v("MainActivity", "operand A is " + operand + " and Result is " + result);
+                display("" + numberFormat.format(res));
+                operatorDisplay(numberFormat.format(nA) + " " + operator + " " + numberFormat.format(nB));
+                Log.v("MainActivity", "operand A is " + op + " and Result is " + res);
                 decimalPosition = 0;
                 displayNumber = "";
             }
 
         }
-    }
 
     /**
      * method for subtraction
      */
     public void buttonMinus(View view) {
-        if (isCalculatorOn == true) {
-            operator = "-";
-            operatorDisplay(operator);
-            if (displayNumber != "") {
-                result = operand;
-                operatorDisplay(result + " " + operator + " ");
-                Log.v("MainActivity", "operand A is " + operand + " and Result is " + result);
-                decimalPosition = 0;
-                displayNumber = "";
-                numberFormat.setRoundingMode(RoundingMode.CEILING);
-                display("" + numberFormat.format(result));
-                operatorDisplay(numberFormat.format(result) + " " + operator + " " );
-            }
-
+        operator = "-";
+        operatorDisplay(operator);
+        if (displayNumber != "") {
+            op = new BigDecimal(displayNumber);
+            res = op;
+            Log.v("MainActivity", "operand A is " + op + " and Result is " + res);
+            decimalPosition = 0;
+            displayNumber = "";
+            numberFormat.setRoundingMode(RoundingMode.CEILING);
+            display("" + numberFormat.format(res));
+            operatorDisplay(numberFormat.format(res) + " " + operator + " ");
         }
     }
 
@@ -272,41 +295,39 @@ public class MainActivity extends AppCompatActivity {
      * this method calls when multiply button pressed
      */
     public void buttonMultiply(View view) {
-        if (isCalculatorOn == true) {
             operator = "x";
             operatorDisplay(operator);
             if (displayNumber != "") {
-                result = operand;
-                Log.v("MainActivity", "operand A is " + operand + " and Result is " + result);
+                op = new BigDecimal(displayNumber);
+                res = op;
+                Log.v("MainActivity", "operand A is " + op + " and Result is " + res);
                 decimalPosition = 0;
                 displayNumber = "";
                 numberFormat.setRoundingMode(RoundingMode.CEILING);
-                display("" + numberFormat.format(result));
-                operatorDisplay(numberFormat.format(result) + " " + operator + " " );
+                display("" + numberFormat.format(res));
+                operatorDisplay(numberFormat.format(res) + " " + operator + " " );
             }
 
         }
-    }
 
     /**
      * this method calls when divide button pressed
      */
     public void buttonDivide(View view) {
-        if (isCalculatorOn == true) {
             operator = "/";
             operatorDisplay(operator);
             if (displayNumber != "") {
-                result = operand;
-                Log.v("MainActivity", "operand A is " + operand + " and Result is " + result);
+                op = new BigDecimal(displayNumber);
+                res = op;
+                Log.v("MainActivity", "operand A is " + op + " and Result is " + res);
                 decimalPosition = 0;
                 displayNumber = "";
                 numberFormat.setRoundingMode(RoundingMode.CEILING);
-                display("" + numberFormat.format(result));
-                operatorDisplay(numberFormat.format(result) + " " + operator + " " );
+                display("" + numberFormat.format(res));
+                operatorDisplay(numberFormat.format(res) + " " + operator + " " );
             }
 
         }
-    }
 
 
     /**
@@ -316,52 +337,53 @@ public class MainActivity extends AppCompatActivity {
      * operand it convert the String to float number and store it
      */
     public void buttonEqualTo(View view) {
-        if (isCalculatorOn == true) {
-            TextView displayMessage = (TextView) findViewById(R.id.display_screen);
             if (displayNumber != "") {
-                operand = Float.parseFloat(displayMessage.getText().toString());
+                op = new BigDecimal(displayNumber);
                 if (operator == "+") {
-                    numA = result;
-                    numB = operand;
-                    result = result + operand;
+                    nA = res;
+                    nB = op;
+                    res = res.add(op);
                     numberFormat.setRoundingMode(RoundingMode.CEILING);
-                    display("" + numberFormat.format(result));
-                    operatorDisplay(numberFormat.format(numA) + " " + operator + " " + numberFormat.format(numB));
-                    Log.v("MainActivity", "operand A is " + operand + " and Result is " + result);
+                    display("" + numberFormat.format(res));
+                    operatorDisplay(numberFormat.format(nA) + " " + operator + " " + numberFormat.format(nB));
+                    Log.v("MainActivity", "operand A is " + op + " and Result is " + res);
                 }
                 else if (operator == "-") {
-                    numA = result;
-                    numB = operand;
-                    result = result - operand;
+                    nA = res;
+                    nB = op;
+                    res = res.subtract(op);
                     numberFormat.setRoundingMode(RoundingMode.CEILING);
-                    display("" + numberFormat.format(result));
-                    operatorDisplay(numberFormat.format(numA) + " " + operator + " " + numberFormat.format(numB));
-                    Log.v("MainActivity", "operand A is " + operand + " and Result is " + result);
+                    display("" + numberFormat.format(res));
+                    operatorDisplay(numberFormat.format(nA) + " " + operator + " " + numberFormat.format(nB));
+                    Log.v("MainActivity", "operand A is " + op + " and Result is " + res);
                 }
                 else if (operator == "x") {
 //                    DecimalFormat numberFormat = new DecimalFormat("#.#######");
-                    numA = result;
-                    numB = operand;
-                    result = result * operand;
+                    nA = res;
+                    nB = op;
+                    res = res.multiply(op);
                     numberFormat.setRoundingMode(RoundingMode.CEILING);
-                    display("" + numberFormat.format(result));
-                    operatorDisplay(numberFormat.format(numA) + " " + operator + " " + numberFormat.format(numB));
-                    Log.v("MainActivity", "operand A is " + operand + " and Result is " + result);
+                    display("" + numberFormat.format(res));
+                    operatorDisplay(numberFormat.format(nA) + " " + operator + " " + numberFormat.format(nB));
+                    Log.v("MainActivity", "operand A is " + op + " and Result is " + res);
                 }
                 else if (operator == "/") {
-                    if (operand != 0) {
-//                    DecimalFormat numberFormat = new DecimalFormat("#.#######");
-                        numA = result;
-                        numB = operand;
-                        result = result / operand;
-                        numberFormat.setRoundingMode(RoundingMode.CEILING);
-                        display("" + numberFormat.format(result));
-                        operatorDisplay(numberFormat.format(numA) + " " + operator + " " + numberFormat.format(numB));
-                        Log.v("MainActivity", "operand A is " + operand + " and Result is " + result);
-                    }
-                    else{
+                    BigDecimal zero = new BigDecimal("0");
+                    boolean isOperandZero = op.equals(zero);
+                    if (isOperandZero) {
                         operatorDisplay("ERROR: DIVISION BY ZERO");
                         Toast.makeText(this,getText(R.string.zero_error_toast),Toast.LENGTH_SHORT).show();
+
+                    }
+                    else{
+//                    DecimalFormat numberFormat = new DecimalFormat("#.#######");
+                        nA = res;
+                        nB = op;
+                        res = res.divide(op);
+                        numberFormat.setRoundingMode(RoundingMode.CEILING);
+                        display("" + numberFormat.format(res));
+                        operatorDisplay(numberFormat.format(nA) + " " + operator + " " + numberFormat.format(nB));
+                        Log.v("MainActivity", "operand A is " + op + " and Result is " + res);
                     }
                 }
                 decimalPosition = 0;
@@ -370,7 +392,6 @@ public class MainActivity extends AppCompatActivity {
             }
 
         }
-    }
 
     //this method display the inputs and result on the screen
     public void display(String display) {
