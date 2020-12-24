@@ -56,7 +56,9 @@
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:text="@string/button_backspace"
+            android:drawableTop="@drawable/ic_backspace_white"
+            android:drawablePadding="10dp"
+            android:layout_gravity="center"
             android:onClick="buttonBackSpace" />
         <Button
             style="@style/operatorButtonTextStyle"

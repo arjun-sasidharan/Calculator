@@ -13,12 +13,7 @@ import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-    }
+    // TODO: Fix bug 'can not put dot if a number had decimal part and erased'
 
     /**
      * @param displayNumber store the number to display as string.
@@ -31,8 +26,7 @@ public class MainActivity extends AppCompatActivity {
     String operator;
     BigDecimal numA, numB;
     // this method format the number
-    DecimalFormat numberFormat = new DecimalFormat("#.###");
-
+    DecimalFormat numberFormat = new DecimalFormat("#.#########");
     /**
      * @param decimalPosition is used to keep track of decimal (dot) button used so if user clicks dot button more than one times a warning message pop up.
      * if it's value is 0, then it means it's not used and no number button is used either
@@ -41,7 +35,14 @@ public class MainActivity extends AppCompatActivity {
      */
     int decimalPosition = 0;
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+
     /**
+     *
      * this program is in developing stage and will not be stable
      */
 
@@ -56,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
         operatorDisplay(operator);
         display("0");
     }
+
     //this method calls when Backspace button pressed
     public void buttonBackSpace(View view) {
         if (displayNumber.length() != 0) {
@@ -73,9 +75,9 @@ public class MainActivity extends AppCompatActivity {
                 decimalPosition = 1;
             }
             display(displayNumber);
-        }
-        else {
-            Toast.makeText(this,getText(R.string.maximum_number_toast),Toast.LENGTH_SHORT).show();
+        } else {
+            operatorDisplay(getString(R.string.maximum_number_limit));
+//            Toast.makeText(this,getText(R.string.maximum_number_limit),Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -88,9 +90,9 @@ public class MainActivity extends AppCompatActivity {
                 decimalPosition = 1;
             }
             display(displayNumber);
-        }
-        else {
-            Toast.makeText(this,getText(R.string.maximum_number_toast),Toast.LENGTH_SHORT).show();
+        } else {
+            operatorDisplay(getString(R.string.maximum_number_limit));
+//            Toast.makeText(this,getText(R.string.maximum_number_limit),Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -103,9 +105,9 @@ public class MainActivity extends AppCompatActivity {
                 decimalPosition = 1;
             }
             display(displayNumber);
-        }
-        else {
-            Toast.makeText(this,getText(R.string.maximum_number_toast),Toast.LENGTH_SHORT).show();
+        } else {
+            operatorDisplay(getString(R.string.maximum_number_limit));
+//            Toast.makeText(this,getText(R.string.maximum_number_limit),Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -118,9 +120,9 @@ public class MainActivity extends AppCompatActivity {
                 decimalPosition = 1;
             }
             display(displayNumber);
-        }
-        else {
-            Toast.makeText(this,getText(R.string.maximum_number_toast),Toast.LENGTH_SHORT).show();
+        } else {
+            operatorDisplay(getString(R.string.maximum_number_limit));
+//            Toast.makeText(this,getText(R.string.maximum_number_limit),Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -134,9 +136,9 @@ public class MainActivity extends AppCompatActivity {
                 decimalPosition = 1;
             }
             display(displayNumber);
-        }
-        else {
-            Toast.makeText(this,getText(R.string.maximum_number_toast),Toast.LENGTH_SHORT).show();
+        } else {
+            operatorDisplay(getString(R.string.maximum_number_limit));
+//            Toast.makeText(this,getText(R.string.maximum_number_limit),Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -150,9 +152,9 @@ public class MainActivity extends AppCompatActivity {
                 decimalPosition = 1;
             }
             display(displayNumber);
-        }
-        else {
-            Toast.makeText(this,getText(R.string.maximum_number_toast),Toast.LENGTH_SHORT).show();
+        } else {
+            operatorDisplay(getString(R.string.maximum_number_limit));
+//            Toast.makeText(this,getText(R.string.maximum_number_limit),Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -165,12 +167,11 @@ public class MainActivity extends AppCompatActivity {
                 decimalPosition = 1;
             }
             display(displayNumber);
-        }
-        else {
-            Toast.makeText(this,getText(R.string.maximum_number_toast),Toast.LENGTH_SHORT).show();
+        } else {
+            operatorDisplay(getString(R.string.maximum_number_limit));
+//            Toast.makeText(this,getText(R.string.maximum_number_limit),Toast.LENGTH_SHORT).show();
         }
     }
-
 
 
     //this method calls when 2 button pressed
@@ -182,9 +183,9 @@ public class MainActivity extends AppCompatActivity {
                 decimalPosition = 1;
             }
             display(displayNumber);
-        }
-        else {
-            Toast.makeText(this,getText(R.string.maximum_number_toast),Toast.LENGTH_SHORT).show();
+        } else {
+            operatorDisplay(getString(R.string.maximum_number_limit));
+//            Toast.makeText(this,getText(R.string.maximum_number_limit),Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -197,9 +198,9 @@ public class MainActivity extends AppCompatActivity {
                 decimalPosition = 1;
             }
             display(displayNumber);
-        }
-        else {
-            Toast.makeText(this,getText(R.string.maximum_number_toast),Toast.LENGTH_SHORT).show();
+        } else {
+            operatorDisplay(getString(R.string.maximum_number_limit));
+//            Toast.makeText(this,getText(R.string.maximum_number_limit),Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -212,27 +213,27 @@ public class MainActivity extends AppCompatActivity {
                 decimalPosition = 1;
             }
             display(displayNumber);
-        }
-        else {
-            Toast.makeText(this,getText(R.string.maximum_number_toast),Toast.LENGTH_SHORT).show();
+        } else {
+            operatorDisplay(getString(R.string.maximum_number_limit));
+//            Toast.makeText(this,getText(R.string.maximum_number_limit),Toast.LENGTH_SHORT).show();
         }
     }
 
     //this method calls when . (dot) button pressed
     public void buttonDot(View view) {
-            if (decimalPosition == 0 && displayNumber == "") {
-                displayNumber = displayNumber + "0.";
-                decimalPosition = 2;
-                Log.v("Main Activity", "the number is " + displayNumber);
-                display(displayNumber);
-            }
-            if (decimalPosition == 1 && displayNumber != "") {
-                displayNumber = displayNumber + ".";
-                decimalPosition = 2;
-                Log.v("Main Activity", "the number is " + displayNumber);
-                display(displayNumber);
-            }
+        if (decimalPosition == 0 && displayNumber == "") {
+            displayNumber = displayNumber + "0.";
+            decimalPosition = 2;
+            Log.v("Main Activity", "the number is " + displayNumber);
+            display(displayNumber);
         }
+        if (decimalPosition == 1 && displayNumber != "") {
+            displayNumber = displayNumber + ".";
+            decimalPosition = 2;
+            Log.v("Main Activity", "the number is " + displayNumber);
+            display(displayNumber);
+        }
+    }
 
     /**
      * this method calls when plus button pressed
@@ -241,36 +242,37 @@ public class MainActivity extends AppCompatActivity {
      * operandA it convert the String to float number and store it
      */
     public void buttonPlus(View view) {
+        if (displayNumber != "" && displayNumber.length() != 0) {
             operator = "+";
             operatorDisplay(operator);
-            if (displayNumber != "") {
-                operand = new BigDecimal(displayNumber);
-                numA = result;
-                numB = operand;
-                result = result.add(operand);
-                numberFormat.setRoundingMode(RoundingMode.CEILING);
-                display("" + numberFormat.format(result));
-                operatorDisplay(numberFormat.format(numA) + " " + operator + " " + numberFormat.format(numB));
-                Log.v("MainActivity", "operand A is " + operand + " and Result is " + result);
-                decimalPosition = 0;
-                displayNumber = "";
-            }
-
+            operand = new BigDecimal(displayNumber);
+            numA = result;
+            numB = operand;
+            result = result.add(operand);
+            result = result.setScale(9, RoundingMode.HALF_EVEN);
+//                numberFormat.setRoundingMode(RoundingMode.CEILING);
+            display("" + numberFormat.format(result));
+            operatorDisplay(numberFormat.format(numA) + " " + operator + " " + numberFormat.format(numB));
+            Log.v("MainActivity", "operand A is " + operand + " and Result is " + result);
+            decimalPosition = 0;
+            displayNumber = "";
         }
+
+    }
 
     /**
      * method for subtraction
      */
     public void buttonMinus(View view) {
-        operator = "-";
-        operatorDisplay(operator);
-        if (displayNumber != "") {
+        if (displayNumber != "" && displayNumber.length() != 0) {
+            operator = "-";
+            operatorDisplay(operator);
             operand = new BigDecimal(displayNumber);
             result = operand;
             Log.v("MainActivity", "operand A is " + operand + " and Result is " + result);
             decimalPosition = 0;
             displayNumber = "";
-            numberFormat.setRoundingMode(RoundingMode.CEILING);
+//            numberFormat.setRoundingMode(RoundingMode.CEILING);
             display("" + numberFormat.format(result));
             operatorDisplay(numberFormat.format(result) + " " + operator + " ");
         }
@@ -280,39 +282,41 @@ public class MainActivity extends AppCompatActivity {
      * this method calls when multiply button pressed
      */
     public void buttonMultiply(View view) {
+        if (displayNumber != "" && displayNumber.length() != 0) {
             operator = "x";
             operatorDisplay(operator);
-            if (displayNumber != "") {
-                operand = new BigDecimal(displayNumber);
-                result = operand;
-                Log.v("MainActivity", "operand A is " + operand + " and Result is " + result);
-                decimalPosition = 0;
-                displayNumber = "";
-                numberFormat.setRoundingMode(RoundingMode.CEILING);
-                display("" + numberFormat.format(result));
-                operatorDisplay(numberFormat.format(result) + " " + operator + " " );
-            }
-
+            operand = new BigDecimal(displayNumber);
+            result = operand;
+            Log.v("MainActivity", "operand A is " + operand + " and Result is " + result);
+            decimalPosition = 0;
+            displayNumber = "";
+//                numberFormat.setRoundingMode(RoundingMode.CEILING);
+            display("" + numberFormat.format(result));
+            operatorDisplay(numberFormat.format(result) + " " + operator + " ");
         }
+
+    }
 
     /**
      * this method calls when divide button pressed
      */
     public void buttonDivide(View view) {
+        if (displayNumber != "" && displayNumber.length() != 0) {
             operator = "/";
             operatorDisplay(operator);
-            if (displayNumber != "") {
-                operand = new BigDecimal(displayNumber);
-                result = operand;
-                Log.v("MainActivity", "operand A is " + operand + " and Result is " + result);
-                decimalPosition = 0;
-                displayNumber = "";
-                numberFormat.setRoundingMode(RoundingMode.CEILING);
-                display("" + numberFormat.format(result));
-                operatorDisplay(numberFormat.format(result) + " " + operator + " " );
-            }
-
+            operand = new BigDecimal(displayNumber);
+            result = operand;
+            Log.v("MainActivity", "operand A is " + operand + " and Result is " + result);
+            decimalPosition = 0;
+            displayNumber = "";
+//                numberFormat.setRoundingMode(RoundingMode.CEILING);
+            display("" + numberFormat.format(result));
+            operatorDisplay(numberFormat.format(result) + " " + operator + " ");
+//                display("" + result);
+//                operatorDisplay(result + " " + operator + " " );
         }
+
+    }
 
 
     /**
@@ -322,50 +326,48 @@ public class MainActivity extends AppCompatActivity {
      * operand it convert the String to float number and store it
      */
     public void buttonEqualTo(View view) {
-            if (displayNumber != "") {
+        if (displayNumber != "" && displayNumber.length() != 0) {
+            if (displayNumber == ".") {
+                operatorDisplay(getString(R.string.wrong_expression));
+            } else {
                 operand = new BigDecimal(displayNumber);
                 if (operator == "+") {
                     numA = result;
                     numB = operand;
                     result = result.add(operand);
-                    numberFormat.setRoundingMode(RoundingMode.CEILING);
+                    result = result.setScale(9, RoundingMode.HALF_EVEN);
+//                    numberFormat.setRoundingMode(RoundingMode.CEILING);
                     display("" + numberFormat.format(result));
                     operatorDisplay(numberFormat.format(numA) + " " + operator + " " + numberFormat.format(numB));
                     Log.v("MainActivity", "operand A is " + operand + " and Result is " + result);
-                }
-                else if (operator == "-") {
+                } else if (operator == "-") {
                     numA = result;
                     numB = operand;
                     result = result.subtract(operand);
-                    numberFormat.setRoundingMode(RoundingMode.CEILING);
+                    result = result.setScale(9, RoundingMode.HALF_EVEN);
+//                    numberFormat.setRoundingMode(RoundingMode.CEILING);
                     display("" + numberFormat.format(result));
                     operatorDisplay(numberFormat.format(numA) + " " + operator + " " + numberFormat.format(numB));
                     Log.v("MainActivity", "operand A is " + operand + " and Result is " + result);
-                }
-                else if (operator == "x") {
-//                    DecimalFormat numberFormat = new DecimalFormat("#.#######");
+                } else if (operator == "x") {
                     numA = result;
                     numB = operand;
                     result = result.multiply(operand);
-                    numberFormat.setRoundingMode(RoundingMode.CEILING);
+                    result = result.setScale(9, RoundingMode.HALF_EVEN);
+//                    numberFormat.setRoundingMode(RoundingMode.CEILING);
                     display("" + numberFormat.format(result));
                     operatorDisplay(numberFormat.format(numA) + " " + operator + " " + numberFormat.format(numB));
                     Log.v("MainActivity", "operand A is " + operand + " and Result is " + result);
-                }
-                else if (operator == "/") {
+                } else if (operator == "/") {
                     BigDecimal zero = new BigDecimal("0");
                     boolean isOperandZero = operand.equals(zero);
                     if (isOperandZero) {
-                        operatorDisplay("ERROR: DIVISION BY ZERO");
-                        Toast.makeText(this,getText(R.string.zero_error_toast),Toast.LENGTH_SHORT).show();
-
-                    }
-                    else{
-//                    DecimalFormat numberFormat = new DecimalFormat("#.#######");
+                        operatorDisplay(getString(R.string.divide_by_zero));
+//                        Toast.makeText(this, getText(R.string.zero_error_toast), Toast.LENGTH_SHORT).show();
+                    } else {
                         numA = result;
                         numB = operand;
-                        result = result.divide(operand);
-                        numberFormat.setRoundingMode(RoundingMode.CEILING);
+                        result = result.divide(operand, 9, RoundingMode.HALF_EVEN);
                         display("" + numberFormat.format(result));
                         operatorDisplay(numberFormat.format(numA) + " " + operator + " " + numberFormat.format(numB));
                         Log.v("MainActivity", "operand A is " + operand + " and Result is " + result);
@@ -375,8 +377,9 @@ public class MainActivity extends AppCompatActivity {
                 displayNumber = "";
                 operator = "";
             }
-
         }
+
+    }
 
     //this method display the inputs and result on the screen
     public void display(String display) {

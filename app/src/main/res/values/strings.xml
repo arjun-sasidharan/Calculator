@@ -18,7 +18,8 @@
     <string name="button_minus">-</string>
     <string name="button_multiply">x</string>
     <string name="button_divide">/</string>
-    <string name="zero_error_toast">Cannot divide a number by zero</string>
-    <string name="maximum_number_toast">Maximum number limit reached</string>
+    <string name="divide_by_zero">CAN\'T DIVIDE BY ZERO</string>
+    <string name="maximum_number_limit">Maximum number limit reached</string>
+    <string name="wrong_expression">WRONG EXPRESSION</string>
 
 </resources>
