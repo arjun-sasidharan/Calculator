@@ -1,6 +1,6 @@
 # Calcultor
 ### This is a simple calculator android application with basic funtions. This app has similar interface of normal pocket calculator we use in daily life.
-![Display screen 1](App Icon/Screen1.png "Screen 1")
+![Display screen 1](https://github.com/im-arjun/Calculator/blob/master/App%20Icon/Screen1.png "Screen 1")
 ![Display screen 2](App Icon/Screen2.png "Screen 2")
 
 <pre>
