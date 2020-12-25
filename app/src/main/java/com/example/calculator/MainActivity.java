@@ -1,10 +1,12 @@
 package com.example.calculator;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -13,8 +15,11 @@ import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity {
-    // TODO: Fix bug 'can not put dot if a number had decimal part and erased'
-
+/**
+ * new method for dot operator is implemented, So
+ * @param decimalPosition variable and its values are irrelevant now.
+ *                        TODO: delete all decimalPosition variable and values
+ */
     /**
      * @param displayNumber store the number to display as string.
      * @param operand store the number in the text view as float
@@ -39,6 +44,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
+
+        ImageView info_button = findViewById(R.id.info_icon);
+
+        info_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this,"About us", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     /**
@@ -63,6 +79,9 @@ public class MainActivity extends AppCompatActivity {
         if (displayNumber.length() != 0) {
             displayNumber = displayNumber.substring(0, displayNumber.length() - 1);
             display(displayNumber);
+//            if (displayNumber.contains(".")) {
+//                decimalPosition = 1;
+//            }
         }
     }
 
@@ -219,20 +238,38 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    //this method calls when . (dot) button pressed
+
     public void buttonDot(View view) {
-        if (decimalPosition == 0 && displayNumber == "") {
+        if (displayNumber.contains(".")){
+            //number already have decimal point
+        }
+        else if (displayNumber.isEmpty()){
+            //no number is entered
             displayNumber = displayNumber + "0.";
-            decimalPosition = 2;
-            Log.v("Main Activity", "the number is " + displayNumber);
             display(displayNumber);
         }
-        if (decimalPosition == 1 && displayNumber != "") {
+        else {
+            //numbers entered, but not have decimal point
             displayNumber = displayNumber + ".";
-            decimalPosition = 2;
-            Log.v("Main Activity", "the number is " + displayNumber);
             display(displayNumber);
         }
+        /**
+         * these commented codes are obsolete, new better way is implemented
+
+
+//        if (decimalPosition == 0 && displayNumber == "") { //when the user tap on dot button before any number
+//            displayNumber = displayNumber + "0.";
+//            decimalPosition = 2;
+//            Log.v("Main Activity", "the number is " + displayNumber);
+//            display(displayNumber);
+//        }
+//        if (decimalPosition == 1 && displayNumber != "") {
+//            displayNumber = displayNumber + ".";
+//            decimalPosition = 2;
+//            Log.v("Main Activity", "the number is " + displayNumber);
+//            display(displayNumber);
+//        }
+         */
     }
 
     /**

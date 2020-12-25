@@ -8,6 +8,7 @@
     android:orientation="vertical"
     android:padding="8dp"
     android:background="@color/background">
+    <include layout= "@layout/app_bar"></include>
 
     <TextView
         android:id="@+id/operator_screen"
@@ -51,14 +52,13 @@
             android:text="@string/button_on"
             android:onClick="buttonOn"
             />
-        <Button
+        <ImageButton
             style="@style/backspaceButtonTextStyle"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:drawableTop="@drawable/ic_backspace_white"
+            android:src="@drawable/ic_backspace_white"
             android:drawablePadding="10dp"
-            android:layout_gravity="center"
             android:onClick="buttonBackSpace" />
         <Button
             style="@style/operatorButtonTextStyle"
