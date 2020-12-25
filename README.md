@@ -2,8 +2,8 @@
 ![App icon](https://github.com/im-arjun/Calculator/blob/master/App%20Icon/app_icon.png "App icon")
 ### This is a simple calculator android application with basic funtions. This app has similar interface of normal pocket calculator we use in daily life.
 
-![Display screen 1](https://github.com/im-arjun/Calculator/blob/master/App%20Icon/Screen1.png "Screenshot 1")
-![Display screen 2](https://github.com/im-arjun/Calculator/blob/master/App%20Icon/Screen2.png "Screenshot 2")
+![Display screen 1](https://github.com/im-arjun/Calculator/blob/master/App%20Icon/Screen2.png "Screenshot 1")
+![Display screen 2](https://github.com/im-arjun/Calculator/blob/master/App%20Icon/Screen1.png "Screenshot 2")
 
 <pre>
 
