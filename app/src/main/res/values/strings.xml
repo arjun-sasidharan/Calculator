@@ -21,5 +21,8 @@
     <string name="divide_by_zero">CAN\'T DIVIDE BY ZERO</string>
     <string name="maximum_number_limit">Maximum number limit reached</string>
     <string name="wrong_expression">WRONG EXPRESSION</string>
+    <string name="github"> <a href ="https://github.com/im-arjun">GitHub</a></string>
+    <string name="instagram"> <a href ="https://www.instagram.com/arjunsasidharan_/?hl=en">Instagram</a></string>
+    <string name="about_us_text">Hello, My name is Arjun, I\'m the one who created this app. This is a simple calculator app with basic functions. This app has similar interface of normal pocket calculator we use in daily life.</string>
 
 </resources>

@@ -3,6 +3,7 @@ package com.example.calculator;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -52,7 +53,9 @@ public class MainActivity extends AppCompatActivity {
         info_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this,"About us", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(MainActivity.this,"About us", Toast.LENGTH_SHORT).show();
+                Intent infoIntent = new Intent(MainActivity.this,InfoActivity.class);
+                startActivity(infoIntent);
             }
         });
     }
