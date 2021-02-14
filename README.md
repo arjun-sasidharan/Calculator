@@ -9,5 +9,10 @@
 
 </pre>
 
+[Click here to download the latest release](https://github.com/im-arjun/Calculator/releases)
+
+<pre>
+
+</pre>
 >Special Note : I made this app just after learning the basics of android development and this is my first android app, Here i used my own logic and there may be better way. I will update this app as i'm going forward in the android development jouney. Any feedback and comment are always appreciated.
 ---
