@@ -1,5 +1,6 @@
 # Calcultor
 <img src="https://github.com/im-arjun/Calculator/blob/master/App%20Icon/app_icon.png" alt="App icon" height="100" width="100">
+
 ### This is a simple calculator android application with basic functions. This app has similar interface of normal pocket calculator we use in daily life.
 
 ![Display screen 1](https://github.com/im-arjun/Calculator/blob/master/App%20Icon/Screen2.png "Screenshot 1")
