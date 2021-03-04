@@ -3,6 +3,7 @@
 ### This is a simple calculator android application with basic functions. This app has similar interface of normal pocket calculator we use in daily life.
 
 ![Display screen 1](https://github.com/im-arjun/Calculator/blob/master/Images/Screen1.png "Screenshot 1")
+![Display screen 2](https://github.com/im-arjun/Calculator/blob/master/Images/Screen22.png "Screenshot 2")
 ![Display screen 2](https://github.com/im-arjun/Calculator/blob/master/Images/Screen2.png "Screenshot 2")
 
 
